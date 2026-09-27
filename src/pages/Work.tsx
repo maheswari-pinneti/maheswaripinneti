@@ -86,12 +86,17 @@ export const Work = () => {
             </div>
             
             <div style={{ display: 'flex', gap: '1rem', marginTop: 'auto', borderTop: '1px solid rgba(255,255,255,0.08)', paddingTop: '1.5rem' }}>
-              {project.demoLink && (
+              {project.id === 'wfa-sqlite' ? (
+                <a href="/work/wfa-sqlite" style={{ color: 'var(--text-main)', fontSize: '0.9rem', fontWeight: 500, textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '4px' }}>
+                  Read Case Study
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                </a>
+              ) : project.demoLink ? (
                 <a href={project.demoLink} target="_blank" rel="noopener noreferrer" style={{ color: 'var(--text-main)', fontSize: '0.9rem', fontWeight: 500, textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '4px' }}>
                   Live Demo
                   <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
                 </a>
-              )}
+              ) : null}
               {project.githubLink && (
                 <a href={project.githubLink} target="_blank" rel="noopener noreferrer" style={{ color: 'var(--text-muted)', fontSize: '0.9rem', fontWeight: 500, textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '4px' }}>
                   Source

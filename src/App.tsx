@@ -21,6 +21,7 @@ import { Contact } from './pages/Contact';
 import { Privacy } from './pages/Privacy';
 import { Dashboard } from './pages/Dashboard';
 import { Work } from './pages/Work';
+import { ProjectWfaSqlite } from './pages/ProjectWfaSqlite';
 
 const Home = () => (
   <div className="container">
@@ -52,6 +53,7 @@ const App = () => {
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/work" element={<Work />} />
+        <Route path="/work/wfa-sqlite" element={<ProjectWfaSqlite />} />
         <Route path="/engineering" element={<EngineeringLab />} />
         <Route path="/test-lab" element={<TestLab />} />
         <Route path="/playground" element={<Playground />} />

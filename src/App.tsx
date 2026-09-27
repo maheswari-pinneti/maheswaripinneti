@@ -19,6 +19,7 @@ import { Links } from './pages/Links';
 import { Resume } from './pages/Resume';
 import { Contact } from './pages/Contact';
 import { Privacy } from './pages/Privacy';
+import { Dashboard } from './pages/Dashboard';
 
 const Home = () => (
   <div className="container">
@@ -42,6 +43,7 @@ const App = () => {
             <Link to="/world">World</Link>
             <Link to="/github">GitHub</Link>
             <Link to="/articles">Articles</Link>
+            <Link to="/dashboard">Dashboard</Link>
           </div>
         </div>
       </nav>
@@ -55,6 +57,7 @@ const App = () => {
         <Route path="/world" element={<World />} />
         <Route path="/github" element={<GitHub />} />
         <Route path="/articles" element={<Articles />} />
+        <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/uses" element={<Uses />} />
         <Route path="/now" element={<Now />} />
         <Route path="/guestbook" element={<Guestbook />} />
@@ -72,7 +75,7 @@ const App = () => {
             <p style={{ color: 'var(--text-muted)' }}>Developed by Maheswari Pinneti<br/>Frontend Developer – Stackly</p>
           </div>
           <div>
-            <h3 style={{ color: 'var(--accent-green)', marginBottom: '1rem', fontSize: '1rem' }}>PERSONAL</h3>
+            <h3 style={{ color: 'var(--accent-primary)', marginBottom: '1rem', fontSize: '1rem' }}>PERSONAL</h3>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
               <Link to="/uses">Uses</Link>
               <Link to="/now">Now</Link>
@@ -82,7 +85,7 @@ const App = () => {
             </div>
           </div>
           <div>
-            <h3 style={{ color: 'var(--accent-green)', marginBottom: '1rem', fontSize: '1rem' }}>PROFESSIONAL</h3>
+            <h3 style={{ color: 'var(--accent-primary)', marginBottom: '1rem', fontSize: '1rem' }}>PROFESSIONAL</h3>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
               <Link to="/resume">Resume</Link>
               <Link to="/contact">Contact</Link>

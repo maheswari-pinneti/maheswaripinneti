@@ -11,9 +11,9 @@ export const Dashboard = () => {
       .catch(console.error);
   }, []);
   const codepenProjects = [
-    { title: "Glassmorphism UI", link: "https://codepen.io/your-work/pen/1" },
-    { title: "Data Visualization Dashboard", link: "https://codepen.io/your-work/pen/2" },
-    { title: "React Physics Animation", link: "https://codepen.io/your-work/pen/3" }
+    { title: "Glassmorphism UI", link: "https://codepen.io/your-work/pen/1", image: "/projects/1.jpg" },
+    { title: "Data Visualization Dashboard", link: "https://codepen.io/your-work/pen/2", image: "/projects/2.jpg" },
+    { title: "React Physics Animation", link: "https://codepen.io/your-work/pen/3", image: "/projects/3.jpg" }
   ];
 
   return (
@@ -60,9 +60,12 @@ export const Dashboard = () => {
           <h2 style={{ marginBottom: '1.5rem', fontSize: '1.25rem' }}>CodePen Experiments</h2>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
             {codepenProjects.map((project, idx) => (
-              <a key={idx} href={project.link} target="_blank" rel="noopener noreferrer" style={{ display: 'block', padding: '1rem', backgroundColor: 'rgba(255,255,255,0.02)', borderRadius: '4px', border: '1px solid var(--border-color)', transition: 'all 0.2s ease' }} onMouseOver={(e) => e.currentTarget.style.borderColor = 'var(--accent-primary)'} onMouseOut={(e) => e.currentTarget.style.borderColor = 'var(--border-color)'}>
-                <div style={{ color: 'var(--text-main)', fontWeight: 500 }}>{project.title}</div>
-                <div style={{ color: 'var(--text-muted)', fontSize: '0.8rem', marginTop: '0.25rem' }}>View on CodePen →</div>
+              <a key={idx} href={project.link} target="_blank" rel="noopener noreferrer" style={{ display: 'flex', gap: '1rem', alignItems: 'center', padding: '1rem', backgroundColor: 'rgba(255,255,255,0.02)', borderRadius: '4px', border: '1px solid var(--border-color)', transition: 'all 0.2s ease', textDecoration: 'none' }} onMouseOver={(e) => e.currentTarget.style.borderColor = 'var(--accent-primary)'} onMouseOut={(e) => e.currentTarget.style.borderColor = 'var(--border-color)'}>
+                <img src={project.image} alt={project.title} style={{ width: '80px', height: '80px', objectFit: 'cover', borderRadius: '4px' }} />
+                <div>
+                  <div style={{ color: 'var(--text-main)', fontWeight: 500 }}>{project.title}</div>
+                  <div style={{ color: 'var(--text-muted)', fontSize: '0.8rem', marginTop: '0.25rem' }}>View on CodePen →</div>
+                </div>
               </a>
             ))}
             <div style={{ marginTop: '1rem', textAlign: 'center' }}>

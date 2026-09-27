@@ -9,7 +9,7 @@ export const FeaturedProject = () => {
 
   return (
     <div className="section" style={{ borderTop: '1px solid var(--border-color)' }}>
-      <p style={{ color: 'var(--accent-green)', fontWeight: 600, marginBottom: '2rem', letterSpacing: '0.1em' }}>
+      <p style={{ color: 'var(--accent-primary)', fontWeight: 600, marginBottom: '2rem', letterSpacing: '0.1em' }}>
         CURRENTLY BUILDING
       </p>
       

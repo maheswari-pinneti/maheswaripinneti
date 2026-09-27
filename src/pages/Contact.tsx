@@ -33,8 +33,8 @@ export const Contact = () => {
       </p>
 
       {status === 'success' ? (
-        <div className="glass" style={{ padding: '3rem', textAlign: 'center', borderColor: 'var(--accent-green)' }}>
-          <h2 style={{ color: 'var(--accent-green)' }}>Message Sent</h2>
+        <div className="glass" style={{ padding: '3rem', textAlign: 'center', borderColor: 'var(--accent-primary)' }}>
+          <h2 style={{ color: 'var(--accent-primary)' }}>Message Sent</h2>
           <p>Thank you for reaching out. I'll get back to you shortly.</p>
           <button className="btn" style={{ marginTop: '2rem' }} onClick={() => setStatus('idle')}>Send Another</button>
         </div>

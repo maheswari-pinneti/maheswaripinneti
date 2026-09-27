@@ -8,7 +8,7 @@ export const Uses = () => {
 
       <div style={{ display: 'flex', flexDirection: 'column', gap: '3rem' }}>
         <div>
-          <h2 style={{ color: 'var(--accent-green)', marginBottom: '1rem', fontSize: '1.2rem' }}>DEVELOPMENT ENVIRONMENT</h2>
+          <h2 style={{ color: 'var(--accent-primary)', marginBottom: '1rem', fontSize: '1.2rem' }}>DEVELOPMENT ENVIRONMENT</h2>
           <ul style={{ listStyle: 'none', lineHeight: 2, color: 'var(--text-main)' }}>
             <li><strong>Editor:</strong> VS Code with Dark+ Theme</li>
             <li><strong>Terminal:</strong> Windows Terminal (PowerShell)</li>
@@ -17,7 +17,7 @@ export const Uses = () => {
         </div>
         
         <div>
-          <h2 style={{ color: 'var(--accent-green)', marginBottom: '1rem', fontSize: '1.2rem' }}>HARDWARE</h2>
+          <h2 style={{ color: 'var(--accent-primary)', marginBottom: '1rem', fontSize: '1.2rem' }}>HARDWARE</h2>
           <ul style={{ listStyle: 'none', lineHeight: 2, color: 'var(--text-main)' }}>
             <li><strong>Machine:</strong> Custom Workstation / High-Performance Laptop</li>
             <li><strong>Monitors:</strong> Dual 27" 4K Displays</li>
@@ -26,7 +26,7 @@ export const Uses = () => {
         </div>
 
         <div>
-          <h2 style={{ color: 'var(--accent-green)', marginBottom: '1rem', fontSize: '1.2rem' }}>FRAMEWORKS & TOOLS</h2>
+          <h2 style={{ color: 'var(--accent-primary)', marginBottom: '1rem', fontSize: '1.2rem' }}>FRAMEWORKS & TOOLS</h2>
           <ul style={{ listStyle: 'none', lineHeight: 2, color: 'var(--text-main)' }}>
             <li><strong>Frontend:</strong> React, TypeScript, Vite</li>
             <li><strong>Styling:</strong> CSS Modules / Tailwind (when requested)</li>

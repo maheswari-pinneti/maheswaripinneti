@@ -35,7 +35,7 @@ export const EngineeringLab = () => {
         <div className="glass" style={{ padding: '2rem' }}>
           <h3>Performance</h3>
           <p style={{ color: 'var(--text-muted)' }}>Real metrics measured across my applications.</p>
-          <ul style={{ marginTop: '1rem', listStyle: 'none', color: 'var(--accent-green)' }}>
+          <ul style={{ marginTop: '1rem', listStyle: 'none', color: 'var(--accent-primary)' }}>
             <li>LCP: 1.2s</li>
             <li>INP: 45ms</li>
             <li>CLS: 0.01</li>

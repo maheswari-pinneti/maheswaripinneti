@@ -31,11 +31,11 @@ export const About = () => {
           <h2 style={{ color: 'var(--text-muted)' }}>Experience</h2>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem', marginTop: '1.5rem' }}>
             {experience.map(job => (
-              <div key={job.id} className="glass" style={{ padding: '2rem', borderLeft: '4px solid var(--accent-emerald)' }}>
+              <div key={job.id} className="glass" style={{ padding: '2rem', borderLeft: '4px solid var(--accent-secondary)' }}>
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap' }}>
                   <div>
                     <h3 style={{ fontSize: '1.5rem', marginBottom: '0.25rem' }}>{job.role}</h3>
-                    <div style={{ color: 'var(--accent-green)', fontWeight: 600 }}>{job.company}</div>
+                    <div style={{ color: 'var(--accent-primary)', fontWeight: 600 }}>{job.company}</div>
                   </div>
                   <div style={{ color: 'var(--text-muted)', textAlign: 'right' }}>
                     <div>{job.dates}</div>
@@ -71,11 +71,11 @@ export const About = () => {
           <h2 style={{ color: 'var(--text-muted)', marginTop: '4rem' }}>Education</h2>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem', marginTop: '1.5rem' }}>
             {education.map(edu => (
-              <div key={edu.id} className="glass" style={{ padding: '2rem', borderLeft: '4px solid var(--accent-emerald)' }}>
+              <div key={edu.id} className="glass" style={{ padding: '2rem', borderLeft: '4px solid var(--accent-secondary)' }}>
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap' }}>
                   <div>
                     <h3 style={{ fontSize: '1.25rem', marginBottom: '0.25rem' }}>{edu.degree}</h3>
-                    <div style={{ color: 'var(--accent-green)', fontWeight: 600, fontSize: '1.1rem' }}>{edu.institution}</div>
+                    <div style={{ color: 'var(--accent-primary)', fontWeight: 600, fontSize: '1.1rem' }}>{edu.institution}</div>
                   </div>
                   <div style={{ color: 'var(--text-muted)', textAlign: 'right' }}>
                     <div>{edu.dates}</div>

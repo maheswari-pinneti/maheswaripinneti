@@ -29,7 +29,7 @@ export const Links = () => {
                transition: 'all 0.2s',
                textDecoration: 'none'
              }}
-             onMouseOver={(e) => { e.currentTarget.style.backgroundColor = 'var(--accent-emerald)'; e.currentTarget.style.color = 'white'; }}
+             onMouseOver={(e) => { e.currentTarget.style.backgroundColor = 'var(--accent-secondary)'; e.currentTarget.style.color = 'white'; }}
              onMouseOut={(e) => { e.currentTarget.style.backgroundColor = ''; e.currentTarget.style.color = 'var(--text-main)'; }}
           >
             {link.name}

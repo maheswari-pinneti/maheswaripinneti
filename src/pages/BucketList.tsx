@@ -25,7 +25,7 @@ export const BucketList = () => {
             }}>
               <span style={{ fontSize: '1.1rem' }}>{item.title}</span>
               <span style={{ 
-                color: item.status === 'Completed' ? 'var(--accent-green)' : 'var(--text-muted)',
+                color: item.status === 'Completed' ? 'var(--accent-primary)' : 'var(--text-muted)',
                 fontWeight: item.status === 'Completed' ? 600 : 400
               }}>
                 {item.status}

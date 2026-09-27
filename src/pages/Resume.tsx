@@ -7,7 +7,7 @@ export const Resume = () => {
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', borderBottom: '2px solid var(--border-color)', paddingBottom: '2rem', marginBottom: '3rem' }}>
         <div>
           <h1 style={{ margin: 0, fontSize: '3rem', letterSpacing: '-0.02em' }}>{profile.name.toUpperCase()}</h1>
-          <p style={{ fontSize: '1.25rem', color: 'var(--accent-green)', fontWeight: 600, marginTop: '0.5rem' }}>{profile.title}</p>
+          <p style={{ fontSize: '1.25rem', color: 'var(--accent-primary)', fontWeight: 600, marginTop: '0.5rem' }}>{profile.title}</p>
         </div>
         <div style={{ textAlign: 'right', color: 'var(--text-muted)' }}>
           <p>{profile.location}</p>
@@ -27,7 +27,7 @@ export const Resume = () => {
           {experience.map(job => (
             <div key={job.id}>
               <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '0.5rem' }}>
-                <h3 style={{ margin: 0, fontSize: '1.25rem' }}>{job.role} <span style={{ color: 'var(--accent-green)' }}>@ {job.company}</span></h3>
+                <h3 style={{ margin: 0, fontSize: '1.25rem' }}>{job.role} <span style={{ color: 'var(--accent-primary)' }}>@ {job.company}</span></h3>
                 <span style={{ color: 'var(--text-muted)' }}>{job.dates}</span>
               </div>
               <p style={{ color: 'var(--text-muted)', marginBottom: '1rem' }}>{job.location} · {job.workMode}</p>

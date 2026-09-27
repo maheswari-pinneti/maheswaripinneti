@@ -17,9 +17,9 @@ export const TestLab = () => {
           { name: 'SECURITY', status: 'PASS' },
           { name: 'TYPECHECK (tsc)', status: 'PASS' },
         ].map(test => (
-          <div key={test.name} className="glass" style={{ padding: '1.5rem', textAlign: 'center', borderTop: '2px solid var(--accent-emerald)' }}>
+          <div key={test.name} className="glass" style={{ padding: '1.5rem', textAlign: 'center', borderTop: '2px solid var(--accent-secondary)' }}>
             <h4 style={{ marginBottom: '0.5rem', color: 'var(--text-muted)' }}>{test.name}</h4>
-            <div style={{ fontWeight: 800, color: 'var(--accent-green)', letterSpacing: '0.1em' }}>{test.status}</div>
+            <div style={{ fontWeight: 800, color: 'var(--accent-primary)', letterSpacing: '0.1em' }}>{test.status}</div>
           </div>
         ))}
       </div>

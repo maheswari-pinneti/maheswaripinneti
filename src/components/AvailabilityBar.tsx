@@ -16,14 +16,14 @@ export const AvailabilityBar = () => {
       <span style={{
         width: '8px',
         height: '8px',
-        backgroundColor: 'var(--accent-green)',
+        backgroundColor: 'var(--accent-primary)',
         borderRadius: '50%',
-        boxShadow: '0 0 8px var(--accent-green)'
+        boxShadow: '0 0 8px var(--accent-primary)'
       }}></span>
       <span style={{
         fontSize: '0.875rem',
         fontWeight: 600,
-        color: 'var(--accent-green)',
+        color: 'var(--accent-primary)',
         letterSpacing: '0.05em'
       }}>
         {profile.availability}

@@ -1,3 +1,5 @@
+import { experience } from '../content/experience';
+
 export const Dashboard = () => {
   const codepenProjects = [
     { title: "Glassmorphism UI", link: "https://codepen.io/your-work/pen/1" },
@@ -50,6 +52,19 @@ export const Dashboard = () => {
             </div>
           </div>
         </div>
+      
+      <div className="glass" style={{ padding: '2rem', marginTop: '2rem', borderTop: '2px solid var(--accent-primary)' }}>
+        <h2 style={{ marginBottom: '1.5rem', fontSize: '1.25rem' }}>Work Experience</h2>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '1rem' }}>
+          {experience.map((job) => (
+            <div key={job.id} style={{ padding: '1.5rem', backgroundColor: 'rgba(255,255,255,0.02)', borderRadius: '8px', border: '1px solid var(--border-color)' }}>
+              <div style={{ color: 'var(--text-main)', fontWeight: 600, fontSize: '1.1rem' }}>{job.role}</div>
+              <div style={{ color: 'var(--accent-secondary)', fontSize: '0.9rem', marginBottom: '0.5rem' }}>{job.company}</div>
+              <div style={{ color: 'var(--text-muted)', fontSize: '0.8rem' }}>{job.dates}</div>
+            </div>
+          ))}
+        </div>
+      </div>
 
       </div>
     </div>

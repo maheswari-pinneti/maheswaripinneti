@@ -6,7 +6,7 @@ export const Now = () => {
         What I'm focused on right now.
       </p>
 
-      <div className="glass" style={{ padding: '3rem', borderLeft: '4px solid var(--accent-emerald)' }}>
+      <div className="glass" style={{ padding: '3rem', borderLeft: '4px solid var(--accent-secondary)' }}>
         <h2 style={{ marginBottom: '1rem' }}>Currently Building</h2>
         <p style={{ marginBottom: '2rem', lineHeight: 1.8 }}>
           I am heavily invested in building out <strong>WFA-SQLite</strong>, refining its RBAC architecture, and optimizing the monolithic React+Express structure for peak performance.

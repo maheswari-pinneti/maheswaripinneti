@@ -80,7 +80,7 @@ export const Guestbook = () => {
       <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
         {entries.map(entry => (
           <div key={entry.id} style={{ borderBottom: '1px solid var(--border-color)', paddingBottom: '1.5rem' }}>
-            <h4 style={{ color: 'var(--accent-green)' }}>{entry.name}</h4>
+            <h4 style={{ color: 'var(--accent-primary)' }}>{entry.name}</h4>
             <p style={{ color: 'var(--text-main)', marginTop: '0.5rem' }}>{entry.message}</p>
             <small style={{ color: 'var(--text-muted)', display: 'block', marginTop: '0.5rem' }}>
               {new Date(entry.created_at).toLocaleDateString()}

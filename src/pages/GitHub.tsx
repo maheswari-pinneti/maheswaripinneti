@@ -51,7 +51,7 @@ export const GitHub = () => {
                 {repo.description || 'No description provided.'}
               </p>
               <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.8rem', color: 'var(--text-muted)' }}>
-                <span>{repo.language && <span style={{ color: 'var(--accent-green)' }}>●</span>} {repo.language}</span>
+                <span>{repo.language && <span style={{ color: 'var(--accent-primary)' }}>●</span>} {repo.language}</span>
                 <div style={{ display: 'flex', gap: '1rem' }}>
                   <span>★ {repo.stargazers_count}</span>
                   <span>⑂ {repo.forks_count}</span>

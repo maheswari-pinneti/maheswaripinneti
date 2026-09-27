@@ -17,7 +17,7 @@ export const Articles = () => {
                onMouseOut={(e) => (e.currentTarget.style.transform = 'translateY(0)')}
           >
             <div>
-              <span style={{ color: 'var(--accent-green)', fontSize: '0.8rem', fontWeight: 600, textTransform: 'uppercase' }}>{article.category}</span>
+              <span style={{ color: 'var(--accent-primary)', fontSize: '0.8rem', fontWeight: 600, textTransform: 'uppercase' }}>{article.category}</span>
               <h3 style={{ marginTop: '0.5rem', fontSize: '1.5rem' }}>{article.title}</h3>
             </div>
             <div style={{ color: 'var(--text-muted)' }}>

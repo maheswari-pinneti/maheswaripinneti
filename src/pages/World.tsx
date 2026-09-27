@@ -40,7 +40,7 @@ export const World = () => {
           </div>
         ) : (
           <div style={{ marginTop: '1rem' }}>
-            <p style={{ color: 'var(--accent-green)', fontWeight: 'bold' }}>✓ Location Active</p>
+            <p style={{ color: 'var(--accent-primary)', fontWeight: 'bold' }}>✓ Location Active</p>
             <p style={{ marginTop: '0.5rem', fontFamily: 'var(--font-mono)' }}>
               Lat: {coords?.lat.toFixed(4)} | Lng: {coords?.lng.toFixed(4)}
             </p>

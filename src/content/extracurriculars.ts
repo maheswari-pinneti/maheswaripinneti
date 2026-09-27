@@ -11,5 +11,12 @@ export const extracurriculars = [
     location: "Mallineni Lakshmaiah Women's Engineering College",
     role: "Quiz Participant",
     description: "Participated in the competitive quiz event representing my college."
+  },
+  {
+    id: "nss",
+    event: "National Service Scheme (NSS)",
+    location: "Bapatla Women's Engineering College",
+    role: "NSS Coordinator",
+    description: "Served as NSS Coordinator for 2 years, organizing activities, leading volunteer initiatives, and working as a general helper for community service events."
   }
 ];

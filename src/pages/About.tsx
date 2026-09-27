@@ -1,6 +1,7 @@
 
 import { experience } from '../content/experience';
 import { education } from '../content/education';
+import { extracurriculars } from '../content/extracurriculars';
 
 export const About = () => {
   return (
@@ -82,6 +83,23 @@ export const About = () => {
                     <div style={{ fontSize: '0.9rem', color: 'var(--text-main)', marginTop: '0.25rem' }}>{edu.score}</div>
                   </div>
                 </div>
+              </div>
+            ))}
+          </div>
+          </div>
+
+          <h2 style={{ color: 'var(--text-muted)', marginTop: '4rem' }}>Extracurricular Activities</h2>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem', marginTop: '1.5rem' }}>
+            {extracurriculars.map(activity => (
+              <div key={activity.id} className="glass" style={{ padding: '2rem', borderLeft: '4px solid var(--accent-secondary)' }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap' }}>
+                  <div>
+                    <h3 style={{ fontSize: '1.25rem', marginBottom: '0.25rem' }}>{activity.role}</h3>
+                    <div style={{ color: 'var(--text-main)', fontWeight: 600, fontSize: '1.1rem' }}>{activity.event}</div>
+                    {activity.location && <div style={{ color: 'var(--accent-secondary)', fontSize: '0.9rem', marginTop: '0.25rem' }}>{activity.location}</div>}
+                  </div>
+                </div>
+                <p style={{ marginTop: '1rem', color: 'var(--text-muted)' }}>{activity.description}</p>
               </div>
             ))}
           </div>

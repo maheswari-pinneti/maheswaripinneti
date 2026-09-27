@@ -4,6 +4,7 @@ export const Links = () => {
   const links = [
     { name: "GitHub", url: profile.github },
     { name: "LinkedIn", url: profile.linkedin },
+    { name: "CodePen", url: profile.codepen },
     { name: "Email", url: `mailto:${profile.email}` },
     { name: "Resume", url: "/resume" }
   ];

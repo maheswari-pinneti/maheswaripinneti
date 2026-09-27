@@ -23,6 +23,7 @@ export const About = () => {
             <li>✓ Developer experience</li>
             <li>✓ Real-world performance</li>
             <li>✓ Comprehensive testing</li>
+            <li>✓ Data-driven workforce analytics</li>
           </ul>
         </div>
         

@@ -84,6 +84,13 @@ app.get('/api/analytics/stats', (req, res) => {
   res.json({ totalViews: totalViews.count, topPaths });
 });
 
+// Serve frontend in production
+const distPath = path.join(__dirname, '../dist');
+app.use(express.static(distPath));
+app.get('*', (req, res) => {
+  res.sendFile(path.join(distPath, 'index.html'));
+});
+
 app.listen(port, () => {
   console.log(`Backend server running on port ${port}`);
 });

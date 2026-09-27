@@ -37,7 +37,7 @@ const App = () => {
   return (
     <Router>
       <Navigation />
-      <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
+      <main style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
@@ -61,7 +61,7 @@ const App = () => {
         <Route path="/privacy" element={<Privacy />} />
       </Routes>
       
-      </div>
+      </main>
       <Footer />
     </Router>
   );

@@ -66,6 +66,8 @@ export const Navigation = () => {
           <button 
             className="mobile-toggle"
             onClick={toggleMenu}
+            aria-expanded={isOpen}
+            aria-label="Toggle navigation menu"
             style={{ background: 'transparent', border: 'none', color: 'var(--text-main)', cursor: 'pointer', display: 'flex', flexDirection: 'column', gap: '4px' }}
           >
             <motion.div animate={{ rotate: isOpen ? 45 : 0, y: isOpen ? 6 : 0 }} style={{ width: '24px', height: '2px', background: 'currentColor' }} />

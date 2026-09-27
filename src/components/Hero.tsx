@@ -1,117 +1,144 @@
-import { Suspense, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { profile } from '../content/profile';
-import { AvailabilityBar } from './AvailabilityBar';
-import { Canvas, useFrame } from '@react-three/fiber';
-import { Points, PointMaterial } from '@react-three/drei';
-import * as random from 'maath/random/dist/maath-random.esm';
 import { motion } from 'framer-motion';
-
-function Starfield(props: any) {
-  const ref = useRef<any>();
-  const sphere = random.inSphere(new Float32Array(5000), { radius: 1.5 });
-  useFrame((state, delta) => {
-    ref.current.rotation.x -= delta / 10;
-    ref.current.rotation.y -= delta / 15;
-  });
-  return (
-    <group rotation={[0, 0, Math.PI / 4]}>
-      <Points ref={ref} positions={sphere} stride={3} frustumCulled={false} {...props}>
-        <PointMaterial transparent color="#ffffff" size={0.005} sizeAttenuation={true} depthWrite={false} />
-      </Points>
-    </group>
-  );
-}
 
 export const Hero = () => {
   return (
-    <div className="section" style={{ minHeight: '90vh', display: 'flex', alignItems: 'center', position: 'relative' }}>
+    <div style={{ 
+      minHeight: '80vh', 
+      display: 'flex', 
+      flexDirection: 'column',
+      justifyContent: 'center',
+      paddingTop: '4rem',
+      position: 'relative'
+    }}>
       
-      {/* 3D Background */}
-      <div style={{ position: 'absolute', inset: 0, zIndex: 0, opacity: 0.6, pointerEvents: 'none' }}>
-        <Canvas camera={{ position: [0, 0, 1] }}>
-          <Suspense fallback={null}>
-            <Starfield />
-          </Suspense>
-        </Canvas>
-      </div>
+      {/* Subtle Background Glow - Signature Aayush Bharti Style */}
+      <div style={{
+        position: 'absolute',
+        top: '20%',
+        left: '50%',
+        transform: 'translate(-50%, -50%)',
+        width: '600px',
+        height: '600px',
+        background: 'radial-gradient(circle, rgba(255,255,255,0.03) 0%, rgba(0,0,0,0) 70%)',
+        filter: 'blur(60px)',
+        zIndex: 0,
+        pointerEvents: 'none'
+      }} />
 
-      <div style={{ maxWidth: '900px', position: 'relative', zIndex: 10, display: 'flex', gap: '4rem', alignItems: 'center', flexWrap: 'wrap' }}>
-        <motion.div 
+      <div style={{ maxWidth: '800px', position: 'relative', zIndex: 10 }}>
+        
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          style={{ 
+            display: 'inline-flex', 
+            alignItems: 'center', 
+            gap: '8px', 
+            padding: '6px 12px', 
+            background: 'rgba(255,255,255,0.05)', 
+            borderRadius: '100px',
+            border: '1px solid rgba(255,255,255,0.1)',
+            marginBottom: '2rem',
+            fontSize: '0.85rem',
+            color: 'var(--text-muted)'
+          }}
+        >
+          <div style={{ width: '8px', height: '8px', borderRadius: '50%', backgroundColor: '#10b981', boxShadow: '0 0 10px rgba(16,185,129,0.5)' }} />
+          Available for new opportunities
+        </motion.div>
+
+        <motion.h1 
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-          style={{ flex: '1 1 450px' }}
+          transition={{ duration: 0.7, delay: 0.1, ease: [0.21, 0.47, 0.32, 0.98] }}
+          style={{ 
+            fontSize: 'clamp(3rem, 8vw, 5.5rem)', 
+            lineHeight: 1.05, 
+            marginBottom: '1.5rem',
+            letterSpacing: '-0.04em',
+            fontWeight: 700,
+            color: 'var(--text-main)'
+          }}
         >
-          <AvailabilityBar />
-          
-          <motion.h1 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-            style={{ 
-              fontSize: '4.5rem', 
-              lineHeight: 1.1, 
-              marginBottom: '1rem',
-              letterSpacing: '-0.02em',
-              fontWeight: 800
-            }}
-          >
-            {profile.name.toUpperCase()}
-          </motion.h1>
-          
-          <motion.h2 
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            style={{ color: 'var(--text-muted)', fontSize: '1.5rem', fontWeight: 400, marginBottom: '2rem' }}
-          >
-            {profile.title}
-          </motion.h2>
-          
-          <motion.p 
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.8, delay: 0.5 }}
-            style={{ fontSize: '1.25rem', maxWidth: '600px', marginBottom: '3rem', lineHeight: 1.6 }}
-          >
-            {profile.headline}
-          </motion.p>
-          
-          <motion.div 
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
-            style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}
-          >
-            <Link to="/work" className="btn" style={{ padding: '0.8rem 2rem' }}>View My Work</Link>
-            <a href={profile.github} target="_blank" rel="noopener noreferrer" className="btn" style={{ backgroundColor: 'transparent', border: '1px solid var(--border-color)', color: 'var(--text-main)', padding: '0.8rem 2rem' }}>GitHub</a>
-            <a href={profile.linkedin} target="_blank" rel="noopener noreferrer" className="btn" style={{ backgroundColor: 'transparent', border: '1px solid var(--border-color)', color: 'var(--text-main)', padding: '0.8rem 2rem' }}>LinkedIn</a>
-          </motion.div>
-        </motion.div>
+          Hi, I'm {profile.name}.<br/>
+          <span style={{ color: 'var(--text-muted)' }}>{profile.title}</span>
+        </motion.h1>
+        
+        <motion.p 
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.7, delay: 0.3 }}
+          style={{ 
+            fontSize: '1.15rem', 
+            maxWidth: '540px', 
+            marginBottom: '3rem', 
+            lineHeight: 1.6,
+            color: '#888888'
+          }}
+        >
+          {profile.headline}
+        </motion.p>
         
         <motion.div 
-          initial={{ opacity: 0, scale: 0.95 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1, delay: 0.3 }}
-          style={{ flex: '1 1 300px', display: 'flex', justifyContent: 'center' }}
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 0.4 }}
+          style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap', alignItems: 'center' }}
         >
-          <div style={{ 
-            width: '100%', 
-            maxWidth: '380px', 
-            aspectRatio: '3/4',
-            borderRadius: '24px',
-            overflow: 'hidden',
-            border: '1px solid var(--border-color)',
-            boxShadow: '0 20px 40px rgba(0,0,0,0.8)',
-            position: 'relative'
-          }}>
-            <img 
-              src="/images/media_1790519883582.jpg" 
-              alt="Maheswari Pinneti" 
-              style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-            />
-          </div>
+          <Link to="/work" style={{ 
+            background: 'var(--text-main)', 
+            color: '#000', 
+            padding: '0.875rem 1.75rem', 
+            borderRadius: '100px',
+            fontWeight: 500,
+            textDecoration: 'none',
+            fontSize: '0.95rem',
+            transition: 'transform 0.2s ease'
+          }}
+          onMouseOver={(e) => e.currentTarget.style.transform = 'scale(1.05)'}
+          onMouseOut={(e) => e.currentTarget.style.transform = 'scale(1)'}
+          >
+            See my work
+          </Link>
+
+          <a href={profile.linkedin} target="_blank" rel="noopener noreferrer" style={{ 
+            color: 'var(--text-main)',
+            textDecoration: 'none',
+            fontWeight: 500,
+            fontSize: '0.95rem',
+            padding: '0.875rem 1rem',
+            display: 'flex',
+            alignItems: 'center',
+            gap: '8px',
+            transition: 'opacity 0.2s ease'
+          }}
+          onMouseOver={(e) => e.currentTarget.style.opacity = '0.7'}
+          onMouseOut={(e) => e.currentTarget.style.opacity = '1'}
+          >
+            LinkedIn
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+          </a>
+          
+          <a href={profile.github} target="_blank" rel="noopener noreferrer" style={{ 
+            color: 'var(--text-main)',
+            textDecoration: 'none',
+            fontWeight: 500,
+            fontSize: '0.95rem',
+            padding: '0.875rem 1rem',
+            display: 'flex',
+            alignItems: 'center',
+            gap: '8px',
+            transition: 'opacity 0.2s ease'
+          }}
+          onMouseOver={(e) => e.currentTarget.style.opacity = '0.7'}
+          onMouseOut={(e) => e.currentTarget.style.opacity = '1'}
+          >
+            GitHub
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+          </a>
         </motion.div>
       </div>
     </div>

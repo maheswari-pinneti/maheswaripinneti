@@ -6,6 +6,7 @@ import { Hero } from './components/Hero';
 import { FeaturedProject } from './components/FeaturedProject';
 import { Navigation } from './components/Navigation';
 import { Footer } from './components/Footer';
+import { AnalyticsTracker } from './components/AnalyticsTracker';
 
 import { EngineeringLab } from './pages/EngineeringLab';
 import { TestLab } from './pages/TestLab';
@@ -39,6 +40,7 @@ const Home = () => (
 const App = () => {
   return (
     <Router>
+      <AnalyticsTracker />
       <Navigation />
       <main style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
         <Suspense fallback={<div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh', color: 'var(--text-muted)' }}>Loading module...</div>}>

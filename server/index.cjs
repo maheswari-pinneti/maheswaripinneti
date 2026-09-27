@@ -26,6 +26,12 @@ db.exec(`
     message TEXT NOT NULL,
     created_at DATETIME DEFAULT CURRENT_TIMESTAMP
   );
+  CREATE TABLE IF NOT EXISTS analytics (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    path TEXT NOT NULL,
+    user_agent TEXT,
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP
+  );
 `);
 
 app.use(cors());
@@ -60,6 +66,22 @@ app.post('/api/contact', (req, res) => {
   const stmt = db.prepare('INSERT INTO messages (name, email, reason, message) VALUES (?, ?, ?, ?)');
   stmt.run(name, email, reason, message);
   res.status(201).json({ success: true });
+});
+
+app.post('/api/analytics', (req, res) => {
+  const { path } = req.body;
+  const userAgent = req.headers['user-agent'] || 'Unknown';
+  if (!path) return res.status(400).json({ error: 'Path is required' });
+  
+  const stmt = db.prepare('INSERT INTO analytics (path, user_agent) VALUES (?, ?)');
+  stmt.run(path, userAgent);
+  res.status(201).json({ success: true });
+});
+
+app.get('/api/analytics/stats', (req, res) => {
+  const totalViews = db.prepare('SELECT COUNT(*) as count FROM analytics').get();
+  const topPaths = db.prepare('SELECT path, COUNT(*) as count FROM analytics GROUP BY path ORDER BY count DESC LIMIT 5').all();
+  res.json({ totalViews: totalViews.count, topPaths });
 });
 
 app.listen(port, () => {

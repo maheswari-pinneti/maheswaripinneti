@@ -1,6 +1,15 @@
+import { useState, useEffect } from 'react';
 import { experience } from '../content/experience';
 
 export const Dashboard = () => {
+  const [stats, setStats] = useState<{ totalViews: number, topPaths: { path: string, count: number }[] } | null>(null);
+
+  useEffect(() => {
+    fetch('/api/analytics/stats')
+      .then(res => res.json())
+      .then(data => setStats(data))
+      .catch(console.error);
+  }, []);
   const codepenProjects = [
     { title: "Glassmorphism UI", link: "https://codepen.io/your-work/pen/1" },
     { title: "Data Visualization Dashboard", link: "https://codepen.io/your-work/pen/2" },
@@ -25,20 +34,24 @@ export const Dashboard = () => {
         
         {/* Analytics Section */}
         <div className="glass" style={{ padding: '2rem', borderTop: '2px solid var(--accent-primary)' }}>
-          <h2 style={{ marginBottom: '1.5rem', fontSize: '1.25rem' }}>Project Analytics</h2>
+          <h2 style={{ marginBottom: '1.5rem', fontSize: '1.25rem', display: 'flex', justifyContent: 'space-between' }}>
+            <span>Live Traffic</span>
+            <span style={{ fontSize: '0.75rem', padding: '4px 8px', background: 'rgba(16, 185, 129, 0.1)', color: '#10b981', borderRadius: '100px', fontWeight: 'bold' }}>LIVE</span>
+          </h2>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', borderBottom: '1px solid var(--border-color)', paddingBottom: '0.5rem' }}>
-              <span style={{ color: 'var(--text-muted)' }}>WFA-SQLite Uptime</span>
-              <span style={{ color: 'var(--accent-primary)', fontWeight: 600 }}>99.98%</span>
+              <span style={{ color: 'var(--text-muted)' }}>Total Page Views</span>
+              <span style={{ color: 'var(--accent-primary)', fontWeight: 600 }}>{stats ? stats.totalViews.toLocaleString() : '...'}</span>
             </div>
-            <div style={{ display: 'flex', justifyContent: 'space-between', borderBottom: '1px solid var(--border-color)', paddingBottom: '0.5rem' }}>
-              <span style={{ color: 'var(--text-muted)' }}>Monthly Active Users</span>
-              <span style={{ color: 'var(--accent-primary)', fontWeight: 600 }}>~12,400</span>
-            </div>
-            <div style={{ display: 'flex', justifyContent: 'space-between', borderBottom: '1px solid var(--border-color)', paddingBottom: '0.5rem' }}>
-              <span style={{ color: 'var(--text-muted)' }}>Lighthouse Score</span>
-              <span style={{ color: 'var(--accent-primary)', fontWeight: 600 }}>100/100</span>
-            </div>
+            
+            <h3 style={{ fontSize: '0.9rem', color: 'var(--text-muted)', marginTop: '1rem', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Top Paths</h3>
+            {stats && stats.topPaths.map((p, i) => (
+              <div key={i} style={{ display: 'flex', justifyContent: 'space-between', borderBottom: '1px solid rgba(255,255,255,0.05)', paddingBottom: '0.5rem' }}>
+                <span style={{ color: 'var(--text-muted)', fontFamily: 'monospace', fontSize: '0.9rem' }}>{p.path}</span>
+                <span style={{ color: 'var(--text-main)', fontWeight: 600, fontSize: '0.9rem' }}>{p.count}</span>
+              </div>
+            ))}
+            {!stats && <span style={{ color: 'var(--text-muted)' }}>Loading live data...</span>}
           </div>
         </div>
 

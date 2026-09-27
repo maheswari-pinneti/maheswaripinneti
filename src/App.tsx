@@ -11,6 +11,7 @@ import { Playground } from './pages/Playground';
 import { World } from './pages/World';
 import { GitHub } from './pages/GitHub';
 import { Articles } from './pages/Articles';
+import { ArticleView } from './pages/ArticleView';
 import { Uses } from './pages/Uses';
 import { Now } from './pages/Now';
 import { Guestbook } from './pages/Guestbook';
@@ -60,6 +61,7 @@ const App = () => {
         <Route path="/world" element={<World />} />
         <Route path="/github" element={<GitHub />} />
         <Route path="/articles" element={<Articles />} />
+        <Route path="/articles/:slug" element={<ArticleView />} />
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/uses" element={<Uses />} />
         <Route path="/now" element={<Now />} />

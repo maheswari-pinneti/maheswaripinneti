@@ -1,6 +1,6 @@
 import { useRef, useMemo, useState } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
-import { OrbitControls, Instances, Instance, Environment } from '@react-three/drei';
+import { OrbitControls, Instances, Instance } from '@react-three/drei';
 import * as THREE from 'three';
 import { motion } from 'framer-motion';
 
@@ -26,7 +26,7 @@ function Particles() {
     return temp;
   }, []);
 
-  useFrame((state) => {
+  useFrame(() => {
     // Make particles slowly rotate and move, and react slightly to mouse
     particles.forEach((particle, i) => {
       let { t, factor, speed, xFactor, yFactor, zFactor } = particle;
@@ -70,7 +70,7 @@ function Particles() {
         metalness={0.8}
         envMapIntensity={2}
       />
-      {particles.map((data, i) => (
+      {particles.map((_, i) => (
         <Instance key={i} />
       ))}
     </Instances>

@@ -55,6 +55,13 @@ export const About = () => {
                     </span>
                   ))}
                 </div>
+                {job.id === 'stackly' && (
+                  <div style={{ marginTop: '2rem' }}>
+                    <a href="https://stackly.io" target="_blank" rel="noopener noreferrer" className="btn" style={{ fontSize: '0.9rem', padding: '0.5rem 1rem' }}>
+                      Visit Stackly
+                    </a>
+                  </div>
+                )}
               </div>
             ))}
           </div>

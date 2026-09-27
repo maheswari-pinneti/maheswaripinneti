@@ -3,9 +3,9 @@ export const experience = [
     id: "stackly",
     company: "Stackly",
     role: "Frontend Developer",
-    dates: "2024 - Present",
-    location: "Remote",
-    workMode: "Remote",
+    dates: "July 2026 - Present",
+    location: "Bengaluru",
+    workMode: "Hybrid",
     overview: "Frontend Developer at Stackly, building performant web applications.",
     responsibilities: [
       "Developing frontend architectures",

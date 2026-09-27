@@ -15,6 +15,7 @@ import { World } from './pages/World';
 import { GitHub } from './pages/GitHub';
 import { Articles } from './pages/Articles';
 import { ArticleView } from './pages/ArticleView';
+import { NotFound } from './pages/NotFound';
 
 // Code Split Heavy Routes
 const Playground = React.lazy(() => import('./pages/Playground').then(module => ({ default: module.Playground })));
@@ -65,6 +66,7 @@ const App = () => {
             <Route path="/resume" element={<Resume />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/privacy" element={<Privacy />} />
+            <Route path="*" element={<NotFound />} />
           </Routes>
         </Suspense>
       </main>

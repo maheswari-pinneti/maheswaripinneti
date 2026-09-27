@@ -76,3 +76,25 @@ a:hover {
   background-color: var(--accent-secondary);
   transform: translateY(-2px);
 }
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .container {
+    padding: 0 1.25rem;
+  }
+  .section {
+    padding: 4rem 0;
+  }
+  body {
+    font-size: 15px; /* Slightly smaller base font for mobile */
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 0 1rem;
+  }
+  .section {
+    padding: 3rem 0;
+  }
+}

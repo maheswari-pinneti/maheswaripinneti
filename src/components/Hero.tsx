@@ -58,6 +58,11 @@ export const Hero = () => {
               color: 'var(--text-muted)',
               padding: '0.75rem'
             }}>GitHub</a>
+            <a href={profile.linkedin} target="_blank" rel="noopener noreferrer" className="btn" style={{ 
+              backgroundColor: 'transparent', 
+              color: '#0077b5',
+              padding: '0.75rem'
+            }}>LinkedIn</a>
           </div>
         </div>
         

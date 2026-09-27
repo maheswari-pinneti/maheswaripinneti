@@ -7,5 +7,5 @@ export const profile = {
   availability: "OPEN TO OPPORTUNITIES", // As required
   email: "hello@example.com",
   github: "https://github.com/maheswaripinneti",
-  linkedin: "https://linkedin.com/in/maheswaripinneti"
+  linkedin: "https://www.linkedin.com/in/maheswari-pinneti/"
 };

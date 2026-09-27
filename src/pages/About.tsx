@@ -1,5 +1,6 @@
 
 import { experience } from '../content/experience';
+import { education } from '../content/education';
 
 export const About = () => {
   return (
@@ -62,6 +63,24 @@ export const About = () => {
                     </a>
                   </div>
                 )}
+              </div>
+            ))}
+            </div>
+          
+          <h2 style={{ color: 'var(--text-muted)', marginTop: '4rem' }}>Education</h2>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem', marginTop: '1.5rem' }}>
+            {education.map(edu => (
+              <div key={edu.id} className="glass" style={{ padding: '2rem', borderLeft: '4px solid var(--accent-emerald)' }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap' }}>
+                  <div>
+                    <h3 style={{ fontSize: '1.25rem', marginBottom: '0.25rem' }}>{edu.degree}</h3>
+                    <div style={{ color: 'var(--accent-green)', fontWeight: 600, fontSize: '1.1rem' }}>{edu.institution}</div>
+                  </div>
+                  <div style={{ color: 'var(--text-muted)', textAlign: 'right' }}>
+                    <div>{edu.dates}</div>
+                    <div style={{ fontSize: '0.9rem', color: 'var(--text-main)', marginTop: '0.25rem' }}>{edu.score}</div>
+                  </div>
+                </div>
               </div>
             ))}
           </div>

@@ -55,10 +55,10 @@ export const About = () => {
                     </span>
                   ))}
                 </div>
-                {job.id === 'stackly' && (
+                {job.cta && job.cta.url !== '#' && (
                   <div style={{ marginTop: '2rem' }}>
-                    <a href="https://stackly.io" target="_blank" rel="noopener noreferrer" className="btn" style={{ fontSize: '0.9rem', padding: '0.5rem 1rem' }}>
-                      Visit Stackly
+                    <a href={job.cta.url} target="_blank" rel="noopener noreferrer" className="btn" style={{ fontSize: '0.9rem', padding: '0.5rem 1rem' }}>
+                      {job.cta.text}
                     </a>
                   </div>
                 )}

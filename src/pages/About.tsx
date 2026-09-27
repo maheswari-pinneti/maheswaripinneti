@@ -86,7 +86,6 @@ export const About = () => {
               </div>
             ))}
           </div>
-          </div>
 
           <h2 style={{ color: 'var(--text-muted)', marginTop: '4rem' }}>Extracurricular Activities</h2>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem', marginTop: '1.5rem' }}>

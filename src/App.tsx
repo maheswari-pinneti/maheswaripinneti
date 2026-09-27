@@ -20,6 +20,7 @@ import { Resume } from './pages/Resume';
 import { Contact } from './pages/Contact';
 import { Privacy } from './pages/Privacy';
 import { Dashboard } from './pages/Dashboard';
+import { Work } from './pages/Work';
 
 const Home = () => (
   <div className="container">
@@ -50,7 +51,7 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
-        <Route path="/work" element={<div className="section container">Work Showcase</div>} />
+        <Route path="/work" element={<Work />} />
         <Route path="/engineering" element={<EngineeringLab />} />
         <Route path="/test-lab" element={<TestLab />} />
         <Route path="/playground" element={<Playground />} />

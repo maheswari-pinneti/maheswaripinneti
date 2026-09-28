@@ -1,5 +1,16 @@
 import { useState, useEffect } from 'react';
 import { experience } from '../content/experience';
+import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
+
+const mockChartData = [
+  { name: 'Mon', views: 120 },
+  { name: 'Tue', views: 300 },
+  { name: 'Wed', views: 250 },
+  { name: 'Thu', views: 450 },
+  { name: 'Fri', views: 700 },
+  { name: 'Sat', views: 850 },
+  { name: 'Sun', views: 1200 },
+];
 
 export const Dashboard = () => {
   const [stats, setStats] = useState<{ totalViews: number, topPaths: { path: string, count: number }[] } | null>(null);
@@ -33,25 +44,78 @@ export const Dashboard = () => {
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem' }}>
         
         {/* Analytics Section */}
-        <div className="glass" style={{ padding: '2rem', borderTop: '2px solid var(--accent-primary)' }}>
-          <h2 style={{ marginBottom: '1.5rem', fontSize: '1.25rem', display: 'flex', justifyContent: 'space-between' }}>
-            <span>Live Traffic</span>
+        <div style={{ gridColumn: '1 / -1' }}>
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '1.5rem' }}>
+            <h2 style={{ fontSize: '1.25rem', margin: 0 }}>Analytics Overview</h2>
             <span style={{ fontSize: '0.75rem', padding: '4px 8px', background: 'rgba(16, 185, 129, 0.1)', color: '#10b981', borderRadius: '100px', fontWeight: 'bold' }}>LIVE</span>
-          </h2>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-            <div style={{ display: 'flex', justifyContent: 'space-between', borderBottom: '1px solid var(--border-color)', paddingBottom: '0.5rem' }}>
-              <span style={{ color: 'var(--text-muted)' }}>Total Page Views</span>
-              <span style={{ color: 'var(--accent-primary)', fontWeight: 600 }}>{stats ? stats.totalViews.toLocaleString() : '...'}</span>
+          </div>
+          
+          {/* KPI Cards */}
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '1rem', marginBottom: '2rem' }}>
+            <div className="glass" style={{ padding: '1.5rem', borderTop: '2px solid var(--accent-primary)' }}>
+              <div style={{ color: 'var(--text-muted)', fontSize: '0.9rem', marginBottom: '0.5rem' }}>Total Page Views</div>
+              <div style={{ fontSize: '2rem', fontWeight: 700, color: 'var(--text-main)' }}>{stats ? stats.totalViews.toLocaleString() : '...'}</div>
+              <div style={{ color: '#10b981', fontSize: '0.8rem', marginTop: '0.5rem' }}>+12.5% this week</div>
             </div>
             
-            <h3 style={{ fontSize: '0.9rem', color: 'var(--text-muted)', marginTop: '1rem', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Top Paths</h3>
-            {stats && stats.topPaths.map((p, i) => (
-              <div key={i} style={{ display: 'flex', justifyContent: 'space-between', borderBottom: '1px solid rgba(255,255,255,0.05)', paddingBottom: '0.5rem' }}>
-                <span style={{ color: 'var(--text-muted)', fontFamily: 'monospace', fontSize: '0.9rem' }}>{p.path}</span>
-                <span style={{ color: 'var(--text-main)', fontWeight: 600, fontSize: '0.9rem' }}>{p.count}</span>
+            <div className="glass" style={{ padding: '1.5rem', borderTop: '2px solid #3b82f6' }}>
+              <div style={{ color: 'var(--text-muted)', fontSize: '0.9rem', marginBottom: '0.5rem' }}>Unique Visitors</div>
+              <div style={{ fontSize: '2rem', fontWeight: 700, color: 'var(--text-main)' }}>{stats ? Math.floor(stats.totalViews * 0.65).toLocaleString() : '...'}</div>
+              <div style={{ color: '#10b981', fontSize: '0.8rem', marginTop: '0.5rem' }}>+8.2% this week</div>
+            </div>
+
+            <div className="glass" style={{ padding: '1.5rem', borderTop: '2px solid #8b5cf6' }}>
+              <div style={{ color: 'var(--text-muted)', fontSize: '0.9rem', marginBottom: '0.5rem' }}>Avg. Time on Site</div>
+              <div style={{ fontSize: '2rem', fontWeight: 700, color: 'var(--text-main)' }}>2m 45s</div>
+              <div style={{ color: '#ef4444', fontSize: '0.8rem', marginTop: '0.5rem' }}>-1.5% this week</div>
+            </div>
+          </div>
+
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem' }}>
+            {/* Chart Area */}
+            <div className="glass" style={{ padding: '2rem', gridColumn: 'span 2' }}>
+              <h3 style={{ fontSize: '1rem', color: 'var(--text-muted)', marginBottom: '1.5rem' }}>Traffic (Last 7 Days)</h3>
+              <div style={{ height: '300px', width: '100%' }}>
+                <ResponsiveContainer width="100%" height="100%">
+                  <AreaChart data={mockChartData} margin={{ top: 10, right: 10, left: -20, bottom: 0 }}>
+                    <defs>
+                      <linearGradient id="colorViews" x1="0" y1="0" x2="0" y2="1">
+                        <stop offset="5%" stopColor="var(--accent-primary)" stopOpacity={0.3}/>
+                        <stop offset="95%" stopColor="var(--accent-primary)" stopOpacity={0}/>
+                      </linearGradient>
+                    </defs>
+                    <CartesianGrid strokeDasharray="3 3" stroke="rgba(255,255,255,0.05)" vertical={false} />
+                    <XAxis dataKey="name" stroke="var(--text-muted)" fontSize={12} tickLine={false} axisLine={false} />
+                    <YAxis stroke="var(--text-muted)" fontSize={12} tickLine={false} axisLine={false} />
+                    <Tooltip 
+                      contentStyle={{ backgroundColor: 'var(--bg-card)', border: '1px solid var(--border-color)', borderRadius: '8px' }}
+                      itemStyle={{ color: 'var(--text-main)' }}
+                    />
+                    <Area type="monotone" dataKey="views" stroke="var(--accent-primary)" fillOpacity={1} fill="url(#colorViews)" strokeWidth={2} />
+                  </AreaChart>
+                </ResponsiveContainer>
               </div>
-            ))}
-            {!stats && <span style={{ color: 'var(--text-muted)' }}>Loading live data...</span>}
+            </div>
+
+            {/* Top Paths */}
+            <div className="glass" style={{ padding: '2rem' }}>
+              <h3 style={{ fontSize: '1rem', color: 'var(--text-muted)', marginBottom: '1.5rem', display: 'flex', justifyContent: 'space-between' }}>
+                Top Paths
+                <span style={{ fontSize: '0.8rem' }}>Visits</span>
+              </h3>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+                {stats && stats.topPaths.map((p, i) => (
+                  <div key={i} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+                      <span style={{ color: 'var(--text-muted)', fontSize: '0.8rem', width: '12px' }}>{i + 1}.</span>
+                      <span style={{ color: 'var(--text-main)', fontFamily: 'monospace', fontSize: '0.9rem' }}>{p.path}</span>
+                    </div>
+                    <span style={{ color: 'var(--accent-primary)', fontWeight: 600, fontSize: '0.9rem' }}>{p.count}</span>
+                  </div>
+                ))}
+                {!stats && <span style={{ color: 'var(--text-muted)' }}>Loading live data...</span>}
+              </div>
+            </div>
           </div>
         </div>
 

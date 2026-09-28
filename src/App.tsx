@@ -7,6 +7,9 @@ import { FeaturedProject } from './components/FeaturedProject';
 import { Navigation } from './components/Navigation';
 import { Footer } from './components/Footer';
 import { AnalyticsTracker } from './components/AnalyticsTracker';
+import { BentoGrid } from './components/BentoGrid';
+import { CaseStudies } from './components/CaseStudies';
+import { Testimonials } from './components/Testimonials';
 
 import { EngineeringLab } from './pages/EngineeringLab';
 import { TestLab } from './pages/TestLab';
@@ -34,7 +37,9 @@ import { ProjectWfaSqlite } from './pages/ProjectWfaSqlite';
 const Home = () => (
   <div className="container">
     <Hero />
-    <FeaturedProject />
+    <BentoGrid />
+    <CaseStudies />
+    <Testimonials />
   </div>
 );
 

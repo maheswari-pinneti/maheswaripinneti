@@ -8,7 +8,7 @@ export const Work = () => {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
-        style={{ marginBottom: '4rem' }}
+        style={{ marginBottom: '3rem' }}
       >
         <h1 style={{ 
           fontSize: 'clamp(2.5rem, 5vw, 4rem)', 
@@ -22,6 +22,28 @@ export const Work = () => {
           A selection of projects I've built, focusing on robust architecture and premium user experiences.
         </p>
       </motion.div>
+
+      {/* Project Stats */}
+      <motion.div 
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, delay: 0.2 }}
+        style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(150px, 1fr))', gap: '1rem', marginBottom: '4rem' }}
+      >
+        <div className="glass" style={{ padding: '1.5rem', borderTop: '2px solid var(--text-main)' }}>
+          <div style={{ color: 'var(--text-muted)', fontSize: '0.9rem', marginBottom: '0.5rem' }}>Total Projects</div>
+          <div style={{ fontSize: '2rem', fontWeight: 700 }}>{projects.length}</div>
+        </div>
+        <div className="glass" style={{ padding: '1.5rem', borderTop: '2px solid #10b981' }}>
+          <div style={{ color: 'var(--text-muted)', fontSize: '0.9rem', marginBottom: '0.5rem' }}>Currently Working On</div>
+          <div style={{ fontSize: '2rem', fontWeight: 700 }}>{projects.filter(p => p.status === 'Active').length}</div>
+        </div>
+        <div className="glass" style={{ padding: '1.5rem', borderTop: '2px solid #3b82f6' }}>
+          <div style={{ color: 'var(--text-muted)', fontSize: '0.9rem', marginBottom: '0.5rem' }}>Completed</div>
+          <div style={{ fontSize: '2rem', fontWeight: 700 }}>{projects.filter(p => p.status === 'Completed').length}</div>
+        </div>
+      </motion.div>
+
 
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(320px, 1fr))', gap: '2rem' }}>
         {projects.map((project, index) => (
@@ -52,9 +74,16 @@ export const Work = () => {
             }}
           >
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1rem' }}>
-              <span style={{ fontSize: '0.8rem', color: '#10b981', fontWeight: 600, letterSpacing: '0.05em', textTransform: 'uppercase' }}>
-                {project.type}
-              </span>
+              <div style={{ display: 'flex', gap: '0.5rem', alignItems: 'center' }}>
+                <span style={{ fontSize: '0.8rem', color: '#10b981', fontWeight: 600, letterSpacing: '0.05em', textTransform: 'uppercase' }}>
+                  {project.type}
+                </span>
+                {project.status === 'Active' && (
+                  <span style={{ fontSize: '0.7rem', padding: '2px 8px', background: 'rgba(16, 185, 129, 0.1)', color: '#10b981', borderRadius: '100px', border: '1px solid rgba(16, 185, 129, 0.2)' }}>
+                    In Progress
+                  </span>
+                )}
+              </div>
               <span style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>{project.year}</span>
             </div>
             
